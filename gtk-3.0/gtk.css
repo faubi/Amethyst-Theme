@@ -591,8 +591,13 @@ spinner:checked {
     animation-play-state: running;
 }
 
-:selected button, :checked button, :active button, :hover button {
+tab button {
     background-color: transparent;
+    color: @void-color;
+}
+
+tab button:hover {
+    color: @fg-color;
 }
 
 calendar:selected {
