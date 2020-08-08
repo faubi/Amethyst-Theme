@@ -1,0 +1,744 @@
+@define-color fg-color #D3A4E5;
+
+@define-color highlight-color #862586;
+@define-color base-color #382448;
+@define-color bg-color #39083F;
+@define-color void-color #27042D;
+@define-color border-color @highlight-color;
+@define-color fill-color @highlight-color; /* was #620A71 */
+@define-color link-color #421F99;
+@define-color visited-link-color #623F99;
+@define-color hover-base #472456;
+@define-color base-alt #620A71;
+
+@define-color infobar-info #22CC22;
+@define-color infobar-warning #CC8822;
+@define-color infobar-question #2288CC;
+@define-color infobar-error #CC2222;
+
+@define-color fg-disabled mix(@fg-color, #553355, 0.6);
+@define-color bg-disabled mix(@bg-color, #553355, 0.6);
+@define-color border-disabled mix(@border-color, #553355, 0.6);
+
+@define-color odd-color @void-color;
+@define-color even-color @bg-color;
+
+/* {
+    color: inherit;
+    background-color: transparent;
+}*/
+
+label {
+    color: @fg-color;
+    background-color: transparent;
+}
+
+selection {
+   color: @void-color;
+   background-color: @highlight-color;
+}
+
+link {
+    color: @link-color;
+    text-decoration-line: underline;
+}
+
+link:visited {
+    color: @visited-link-color;
+}
+
+statusbar {
+    background-color: @hover-base;
+    color: @fg-color;
+}
+
+levelbar {
+    border: 1px solid @border-color;
+}
+
+levelbar trough {
+    background-color: @void-color;
+    min-height: 7px;
+    min-width: 7px;
+}
+
+levelbar block {
+    margin: 1px;
+}
+
+levelbar block.filled {
+    background-color: @fill-color;
+}
+
+levelbar block.empty {
+    background-color: @hover-base;
+}
+
+progressbar {
+}
+
+progressbar text {
+    color: @fg-color;
+    background-color: transparent;
+}
+
+progressbar trough {
+    background-color: @void-color;
+    border: 1px solid @border-color;
+}
+
+progress {
+    background-color: @fill-color;
+}
+
+@keyframes pulse {
+    from {
+        background-color: @fill-color;
+    }
+    to {
+        background-color: @base-alt;
+    }
+}
+
+progress.pulse {
+    animation-name: pulse;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.background {
+    background-color: @bg-color;
+    color: @fg-color;
+    border: 1px solid @border-color;
+}
+
+headerbar, titlebar {
+    background-color: @bg-color;
+}
+
+infobar {
+    color: @fg-color;
+}
+
+infobar.info {
+    background-color: @infobar-info;
+}
+
+infobar.warning {
+    background-color: @infobar-warning;
+}
+
+infobar.question {
+    background-color: @infobar-question;
+}
+
+infobar.error {
+    background-color: @infobar-error;
+}
+
+scrollbar {
+    border: none;
+}
+
+scrollbar trough {
+    background-color: @void-color;
+}
+
+scrollbar slider {
+    background-color: @highlight-color;
+    border: 1px solid transparent;
+}
+
+scrollbar.vertical slider {
+    min-width: 5px;
+}
+
+scrollbar.horizontal slider {
+    min-height: 5px;
+}
+
+/* scrollbar button {
+    color: @hover-base;
+} */
+
+image {
+    background-color: transparent;
+}
+
+separator {
+    background-color: @border-color;
+}
+
+button separator {
+    background-color: mix(@fg-color, @highlight-color, 0.5);
+}
+
+paned separator {
+    background-color: transparent;
+    background-size: 1px 1px;
+    background-image: image(@border-color);
+}
+
+paned.vertical separator {
+    background-repeat: repeat-x;
+    background-position: left center;
+}
+
+paned.horizontal separator {
+    background-repeat: repeat-y;
+    background-position: top center;
+}
+
+/* paned separator.horizontal,
+paned.vertical separator { */
+    /* border-top: 1px solid @border-color;
+    border-bottom: 1px solid @border-color; */
+    /* padding: 1px;
+    background-color: green;
+    background-clip: content-box; 
+    color: red;
+    border: 1px solid blue;
+    outline: ;
+} */
+
+/* paned.vertical separator,
+paned.horizontal separator { */
+    /* border-left: 1px solid @border-color;
+    border-right: 1px solid @border-color; */
+    /* border-color: transparent;
+    background-color: @border-color;
+    background-clip: content-box;
+    outline: none;
+    padding: 0;
+    margin: 0;
+} */
+
+textview {
+    background-color: @void-color;
+    padding-top: 0.5em;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: @border-color;
+}
+
+scrolledwindow overshoot, scrolledwindow undershoot {
+    background-color: transparent;
+}
+
+scale {
+    margin: 3px;
+}
+
+scale trough {
+    background-color: @void-color;
+    border: 1px solid @border-color;
+    min-height: 3px;
+    min-width: 3px;
+}
+
+scale.vertical trough {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+scale.horizontal trough {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+scale slider {
+    /*border: 1px solid;
+    border-color: @border-color;
+    background-color: darker(@border-color);*/
+    margin: -4px;
+    min-width: 11px;
+    min-height: 11px;
+    border: 1px solid @border-color;
+}
+
+scale slider:hover, scale slider:selected {
+    border-color: @highlight-color;
+    background-color: @hover-base;
+}
+
+scale highlight, scale fill {
+    background-color: @highlight-color;
+}
+
+window:not(.background) {
+    border: 1px solid @border-color;
+    background-color: @void-color;
+    padding: 1px;
+}
+
+window.popup {
+    background-color: @void-color;
+    border: 1px solid @border-color;
+    padding: 1px;
+}
+
+button {
+    background-color: @hover-base;
+    border: none;
+    padding: 2px;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: @highlight-color;
+}
+
+button.toggle:checked, button.radio:checked, button.check:checked {
+    background-color: @void-color;
+}
+
+button.toggle:checked:hover,
+button.radio:checked:hover,
+button.check:checked:hover {
+    background-color: @hover-base;
+}
+
+switch slider, scale slider {
+    background-color: @hover-base;
+}
+
+switch slider:hover,
+scale slider:hover,
+scale trough:hover slider,
+switch trough:hover slider {
+    /* background-color: mix(@hover-base, @fg-color, 0.5); */
+    background-color: @highlight-color;
+}
+
+switch slider {
+    margin: 1px;
+}
+
+switch {
+    border: 1px solid @border-color;
+}
+
+check {
+    border: 1px solid @border-color;
+    background-color: @void-color;
+    padding: 1px;
+}
+
+radio {
+    border: 1px solid @border-color;
+    border-radius: 50%;
+    background-color: @void-color;
+}
+
+check, radio {
+    margin-right: 0.5em;
+    min-height: 1em;
+    min-width: 1em;
+    background-image: none;
+    -gtk-icon-source: none;
+    color: @fg-color;
+    -gtk-icon-palette: success @fg-color, warning @fg-color, error @fg-color;
+    -gtk-icon-style: symbolic;
+}
+
+check:checked {
+    /* -gtk-icon-source: -gtk-recolor(url('check.svg'), success @fg-color, warning @fg-color, error @fg-color); */
+    -gtk-icon-source: url('check.svg');
+}
+
+radio:checked {
+    -gtk-icon-source: url('radio.svg');
+}
+
+check:checked:disabled {
+    -gtk-icon-source: url('check-disabled.svg');
+}
+
+radio:checked:disabled {
+    -gtk-icon-source: url('radio-disabled.svg');
+}
+
+checkbutton:hover check, check:hover,
+radiobutton:hover radio, radio:hover {
+    background-color: @hover-base;
+}
+
+/* radiobutton:nth-child(2), checkbutton:nth-child(2) {
+    margin: 2px;
+} */
+
+button.link {
+    border: none;
+    background-color: transparent;
+}
+
+button.link {
+    color: @link-color;
+}
+
+button.link:visited {
+    color: @visited-link-color;
+}
+
+entry {
+    background-color: @void-color;
+    border: 1px solid @border-color;
+    padding: 3px;
+}
+
+entry:disabled, check:disabled, radio:disabled,
+switch slider:disabled, scale slider:disabled,
+button:disabled, radio:disabled,button.toggle:checked:disabled, 
+scale trough:disabled, button.toggle:checked:disabled {
+    background-color: @bg-disabled;
+    color: @fg-disabled;
+    border-color: @border-disabled;
+}
+
+label:disabled, image:disabled {
+    background-color: transparent;
+    color: @fg-disabled;
+}
+
+frame:disabled, .frame:disabled {
+    border-color: @border-disabled;
+}
+
+searchbar entry {
+    color: @border-color;
+}
+
+.frame {
+    border: 1px solid @border-color;
+}
+
+notebook stack {
+    background-color: @bg-color;
+}
+
+notebook tab {
+    background-color: @hover-base;;
+    margin: 1px;
+    padding: 3px;
+}
+
+/*notebook header tab:not(:active) {
+    border-width: 1px;
+}*/
+
+notebook tab:checked {
+    background-color: @highlight-color;
+    color: @void-color;
+    margin: 1px;
+}
+
+notebook tab:checked label {
+    color: @void-color;
+}
+
+notebook tab:hover:not(:checked) {
+    background-color: @highlight-color;
+}
+
+notebook header.top {
+    border-bottom: 1px solid @border-color;
+}
+
+notebook header.bottom {
+    border-top: 1px solid @border-color;
+}
+
+notebook header.left {
+    border-right: 1px solid @border-color;
+}
+
+notebook header.right {
+    border-left: 1px solid @border-color;
+}
+
+/* notebook > stack {
+    border: 1px solid @border-color;
+}
+
+notebook header.top ~ stack {
+    border-width: 0px 1px 1px 1px;
+}
+
+notebook header.bottom ~ stack {
+    border-width: 1px 1px 0px 1px;
+}
+
+notebook stack ~ header.left {
+    border: 1px 
+
+notebook header.left ~ stack {
+    border-width: 1px 1px 1px 0px;
+}
+
+notebook header.right ~ stack {
+    border-right: none;
+} */
+
+spinbutton entry {
+    border: none;
+}
+
+spinbutton {
+    border: 1px solid @border-color;
+    margin: 2px;
+}
+
+spinbutton button {
+    margin: 0;
+}
+
+/* spinbutton.horizontal button {
+    border-right: 1px solid @border-color;
+}
+
+spinbutton.vertical button.up {
+    border-bottom: 1px solid @border-color;
+}
+
+spinbutton.vertical button.down {
+    border-top: 1px solid @border-color;
+} */
+
+button.combo arrow {
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    background-size: cover;
+    min-width: 1em;
+    min-height: 1em;
+}
+
+/* entry.combo ~ button, entry + button {
+    border-width: 1px 1px 1px 0;;
+    border-style: solid;
+    border-color: @border-color;;
+} */
+
+box.linked {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* entry.combo {
+    border-right: none;
+} */
+
+
+combobox {
+    border: 1px solid @border-color;
+    border: none;
+    padding: 0;
+}
+
+stackswitcher {
+    /* border: 1px solid @border-color; */
+}
+
+/* row:nth-child(odd) {
+    background-color: @odd-color;
+}
+
+row:nth-child(even) {
+    background-color: @even-color;
+} */
+
+row {
+    /* border-top: 1px solid @border-color; */
+    background-color: @void-color;
+}
+
+row:first-child {
+    border: none
+}
+
+/* row:not(:first-child) {
+    border-top: 1px solid @border-color;
+} */
+
+row:selected {
+    background-color: @highlight-color;
+    color: @void-color;
+}
+
+row:selected label {
+    color: @void-color;
+}
+
+/* list row {
+    background-color: base-color;
+    border: 1px solid @border-color;
+    margin: 1px:
+} */
+
+/* list {
+    border: 1px solid @border-color;
+} */
+
+treeview header button {
+    background-color: @void-color;
+    color: @fg-color;
+}
+
+border {
+    border-color: @border-color;
+    border-width: 1px;
+    border-style: solid
+}
+
+border.border-inset {
+    border-style: inset;
+}
+
+border.border-outset {
+    border-style: outset;
+}
+
+border.border-groove {
+    border-style: groove;
+}
+
+border.border-ridge {
+    border-style: ridge;
+}
+
+menu {
+    border: 1px solid @border-color;
+}
+
+menuitem {
+    margin: 3px;
+}
+
+menuitem:hover, menuitem:selected {
+    color: @void-color;
+    background-color: @highlight-color;
+}
+
+arrow.left {
+    -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
+arrow.right {
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
+arrow.up, arrow.top {
+    -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
+arrow.down, arrow.bottom {
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
+label accelerator {
+}
+
+iconview {
+    border: 1px solid @border-color;
+}
+    
+.sidebar {
+    padding: 2px;
+    border: none;
+    border-right: 1px solid @border-color;
+}
+
+dialog {
+    border: 1px solid @border-color;
+    font-size: large;
+}
+
+popover {
+    border: 1px solid @border-color;
+}
+
+tooltip {
+    background-color: @void-color;
+    border: 1px solid @border-color;
+}
+
+messagedialog {
+    /* border: 1px solid @border-color; */
+    background-color: blue;
+}
+
+tabs {
+    background-color: @void-color;
+}
+
+.flat {
+    border: none;
+}
+
+rubberband {
+    border: 1px solid @border-color;
+    background-color: alpha(@highlight-color, 0.25);
+}
+
+treeview > rubberband {
+    border: none;
+    background-color: transparent;
+}
+
+treeview:selected, iconview:selected {
+    background-color: @highlight-color;
+    color: @void-color;
+}
+
+button image, button label {
+    background-color: inherit;
+    color: inherit;
+}
+
+actionbar {
+    border-top: 1px solid @border-color;
+}
+
+@keyframes spin {
+    to { -gtk-icon-transform: rotate(1turn); }
+}
+
+spinner {
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+spinner:checked {
+    animation-play-state: running;
+}
+
+marks {
+    border-color: red;
+    background-color: blue;
+    color: green;
+}
+
+:selected button, :checked button, :active button, :hover button {
+    background-color: transparent;
+}
+
+/* button.color {
+    background-color: alpha(#FFF, 0.5);
+} */
+
+calendar:selected {
+    color: @void-color;
+    background-color: @highlight-color;
+}
