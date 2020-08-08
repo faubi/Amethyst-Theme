@@ -599,3 +599,16 @@ calendar:selected {
     color: @void-color;
     background-color: @highlight-color;
 }
+
+expander arrow:not(:checked)  {
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
+expander arrow:checked {
+    -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+    min-width: 1em;
+    min-height: 1em;
+}
+
