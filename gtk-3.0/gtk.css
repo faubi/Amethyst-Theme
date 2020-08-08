@@ -603,3 +603,9 @@ expander arrow:checked {
 placessidebar image {
     margin-right: 0.5em;
 }
+
+button:focus, combobox:focus, link:focus, paned separator:focus,
+switch:focus slider, checkbutton:focus, radiobutton:focus, tabs:focus,
+spinbutton:focus, popover:focus, calendar:focus, scale:focus trough {
+    outline: 1px dashed @border-color;
+}
