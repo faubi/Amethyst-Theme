@@ -1,16 +1,12 @@
 @define-color fg-color #D3A4E5;
-
-@define-color highlight-color #862586;
-@define-color base-color #382448;
 @define-color bg-color #39083F;
+@define-color highlight-color #862586;
 @define-color void-color #27042D;
+@define-color base-color #472456;
 @define-color border-color @highlight-color;
-@define-color fill-color @highlight-color; /* was #620A71 */
+
 @define-color link-color #421F99;
 @define-color visited-link-color #623F99;
-@define-color hover-base #472456;
-@define-color base-alt #620A71;
-
 @define-color infobar-info #22CC22;
 @define-color infobar-warning #CC8822;
 @define-color infobar-question #2288CC;
@@ -19,14 +15,6 @@
 @define-color fg-disabled mix(@fg-color, #553355, 0.6);
 @define-color bg-disabled mix(@bg-color, #553355, 0.6);
 @define-color border-disabled mix(@border-color, #553355, 0.6);
-
-@define-color odd-color @void-color;
-@define-color even-color @bg-color;
-
-/* {
-    color: inherit;
-    background-color: transparent;
-}*/
 
 label {
     color: @fg-color;
@@ -48,7 +36,7 @@ link:visited {
 }
 
 statusbar {
-    background-color: @hover-base;
+    background-color: @base-color;
     color: @fg-color;
 }
 
@@ -67,11 +55,11 @@ levelbar block {
 }
 
 levelbar block.filled {
-    background-color: @fill-color;
+    background-color: @highlight-color;
 }
 
 levelbar block.empty {
-    background-color: @hover-base;
+    background-color: @base-color;
 }
 
 progressbar {
@@ -88,15 +76,15 @@ progressbar trough {
 }
 
 progress {
-    background-color: @fill-color;
+    background-color: @highlight-color;
 }
 
 @keyframes pulse {
     from {
-        background-color: @fill-color;
+        background-color: @highlight-color;
     }
     to {
-        background-color: @base-alt;
+        background-color: @fg-color;
     }
 }
 
@@ -159,10 +147,6 @@ scrollbar.horizontal slider {
     min-height: 5px;
 }
 
-/* scrollbar button {
-    color: @hover-base;
-} */
-
 image {
     background-color: transparent;
 }
@@ -190,30 +174,6 @@ paned.horizontal separator {
     background-repeat: repeat-y;
     background-position: top center;
 }
-
-/* paned separator.horizontal,
-paned.vertical separator { */
-    /* border-top: 1px solid @border-color;
-    border-bottom: 1px solid @border-color; */
-    /* padding: 1px;
-    background-color: green;
-    background-clip: content-box; 
-    color: red;
-    border: 1px solid blue;
-    outline: ;
-} */
-
-/* paned.vertical separator,
-paned.horizontal separator { */
-    /* border-left: 1px solid @border-color;
-    border-right: 1px solid @border-color; */
-    /* border-color: transparent;
-    background-color: @border-color;
-    background-clip: content-box;
-    outline: none;
-    padding: 0;
-    margin: 0;
-} */
 
 textview {
     background-color: @void-color;
@@ -249,9 +209,6 @@ scale.horizontal trough {
 }
 
 scale slider {
-    /*border: 1px solid;
-    border-color: @border-color;
-    background-color: darker(@border-color);*/
     margin: -4px;
     min-width: 11px;
     min-height: 11px;
@@ -260,7 +217,7 @@ scale slider {
 
 scale slider:hover, scale slider:selected {
     border-color: @highlight-color;
-    background-color: @hover-base;
+    background-color: @base-color;
 }
 
 scale highlight, scale fill {
@@ -280,7 +237,7 @@ window.popup {
 }
 
 button {
-    background-color: @hover-base;
+    background-color: @base-color;
     border: none;
     padding: 2px;
     margin: 2px;
@@ -297,18 +254,17 @@ button.toggle:checked, button.radio:checked, button.check:checked {
 button.toggle:checked:hover,
 button.radio:checked:hover,
 button.check:checked:hover {
-    background-color: @hover-base;
+    background-color: @base-color;
 }
 
 switch slider, scale slider {
-    background-color: @hover-base;
+    background-color: @base-color;
 }
 
 switch slider:hover,
 scale slider:hover,
 scale trough:hover slider,
 switch trough:hover slider {
-    /* background-color: mix(@hover-base, @fg-color, 0.5); */
     background-color: @highlight-color;
 }
 
@@ -344,7 +300,6 @@ check, radio {
 }
 
 check:checked {
-    /* -gtk-icon-source: -gtk-recolor(url('check.svg'), success @fg-color, warning @fg-color, error @fg-color); */
     -gtk-icon-source: url('check.svg');
 }
 
@@ -362,12 +317,8 @@ radio:checked:disabled {
 
 checkbutton:hover check, check:hover,
 radiobutton:hover radio, radio:hover {
-    background-color: @hover-base;
+    background-color: @base-color;
 }
-
-/* radiobutton:nth-child(2), checkbutton:nth-child(2) {
-    margin: 2px;
-} */
 
 button.link {
     border: none;
@@ -419,14 +370,10 @@ notebook stack {
 }
 
 notebook tab {
-    background-color: @hover-base;;
+    background-color: @base-color;;
     margin: 1px;
     padding: 3px;
 }
-
-/*notebook header tab:not(:active) {
-    border-width: 1px;
-}*/
 
 notebook tab:checked {
     background-color: @highlight-color;
@@ -458,29 +405,6 @@ notebook header.right {
     border-left: 1px solid @border-color;
 }
 
-/* notebook > stack {
-    border: 1px solid @border-color;
-}
-
-notebook header.top ~ stack {
-    border-width: 0px 1px 1px 1px;
-}
-
-notebook header.bottom ~ stack {
-    border-width: 1px 1px 0px 1px;
-}
-
-notebook stack ~ header.left {
-    border: 1px 
-
-notebook header.left ~ stack {
-    border-width: 1px 1px 1px 0px;
-}
-
-notebook header.right ~ stack {
-    border-right: none;
-} */
-
 spinbutton entry {
     border: none;
 }
@@ -494,18 +418,6 @@ spinbutton button {
     margin: 0;
 }
 
-/* spinbutton.horizontal button {
-    border-right: 1px solid @border-color;
-}
-
-spinbutton.vertical button.up {
-    border-bottom: 1px solid @border-color;
-}
-
-spinbutton.vertical button.down {
-    border-top: 1px solid @border-color;
-} */
-
 button.combo arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     background-size: cover;
@@ -513,40 +425,17 @@ button.combo arrow {
     min-height: 1em;
 }
 
-/* entry.combo ~ button, entry + button {
-    border-width: 1px 1px 1px 0;;
-    border-style: solid;
-    border-color: @border-color;;
-} */
-
 box.linked {
     border: none;
     margin: 0;
     padding: 0;
 }
 
-/* entry.combo {
-    border-right: none;
-} */
-
-
 combobox {
     border: 1px solid @border-color;
     border: none;
     padding: 0;
 }
-
-stackswitcher {
-    /* border: 1px solid @border-color; */
-}
-
-/* row:nth-child(odd) {
-    background-color: @odd-color;
-}
-
-row:nth-child(even) {
-    background-color: @even-color;
-} */
 
 row {
     /* border-top: 1px solid @border-color; */
@@ -557,10 +446,6 @@ row:first-child {
     border: none
 }
 
-/* row:not(:first-child) {
-    border-top: 1px solid @border-color;
-} */
-
 row:selected {
     background-color: @highlight-color;
     color: @void-color;
@@ -569,16 +454,6 @@ row:selected {
 row:selected label {
     color: @void-color;
 }
-
-/* list row {
-    background-color: base-color;
-    border: 1px solid @border-color;
-    margin: 1px:
-} */
-
-/* list {
-    border: 1px solid @border-color;
-} */
 
 treeview header button {
     background-color: @void-color;
@@ -644,9 +519,6 @@ arrow.down, arrow.bottom {
     min-height: 1em;
 }
 
-label accelerator {
-}
-
 iconview {
     border: 1px solid @border-color;
 }
@@ -669,11 +541,6 @@ popover {
 tooltip {
     background-color: @void-color;
     border: 1px solid @border-color;
-}
-
-messagedialog {
-    /* border: 1px solid @border-color; */
-    background-color: blue;
 }
 
 tabs {
@@ -724,19 +591,9 @@ spinner:checked {
     animation-play-state: running;
 }
 
-marks {
-    border-color: red;
-    background-color: blue;
-    color: green;
-}
-
 :selected button, :checked button, :active button, :hover button {
     background-color: transparent;
 }
-
-/* button.color {
-    background-color: alpha(#FFF, 0.5);
-} */
 
 calendar:selected {
     color: @void-color;
